@@ -1,15 +1,9 @@
 using EGM.FileManager;
-using EGM.FileManager.Core.Extensions;
+using EGM.FileManager.Extensions;
 
-IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices(services =>
-    {
-        services.AddFileManagement(opts =>
-        {
-            // TODO: Configure options.
-        });
-        services.AddHostedService<Worker>();
-    })
-    .Build();
-
+var host = CreateHostBuilder(args).Build();
 await host.RunAsync();
+
+static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .UseStartup<Startup>();

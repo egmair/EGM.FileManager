@@ -7,14 +7,36 @@ namespace EGM.FileManager.Core.Options
     /// </summary>
     public sealed class FileManagerOptions
     {
+        public const string FileManager = "FileManager";
+
         /// <summary>
         /// The source directory to monitor for incoming files.
         /// </summary>
         public string? SourceDirectory { get; set; }
 
         /// <summary>
+        /// Whether the file manager should process unsupported file types.
+        /// </summary>
+        public bool? ProcessUnsupportedFileTypes { get; set; }
+
+        /// <summary>
+        /// The default directory to place unsupported file types.
+        /// </summary>
+        public string? DefaultDirectory { get; set; }
+
+        /// <summary>
         /// The collection of bindings to place particular file types into certain directories.
         /// </summary>
         public Dictionary<string, string> TargetDirectoryBindings { get; set; } = new Dictionary<string, string>();
+
+        /// <summary>
+        /// The maximum number of files to hold in the processing queue.
+        /// </summary>
+        public int? QueueLimit { get; set; }
+
+        /// <summary>
+        /// A delay on adding items to the queue.
+        /// </summary>
+        public uint? EnqueueDelay { get; set; }
     }
 }
