@@ -3,21 +3,51 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM.FileManager", "EGM.FileManager\EGM.FileManager.csproj", "{79E11DB9-93FA-48BA-9268-78F7FB07A97B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGM.FileManager", "EGM.FileManager\EGM.FileManager.csproj", "{79E11DB9-93FA-48BA-9268-78F7FB07A97B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F23D275D-609F-4B75-BE14-A25636447D21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2285A452-A50F-4BF1-A9EA-A17140DFEF70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F835F7D0-F6F6-4D57-8B75-C6304701FAD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C00CB67B-0A2C-42BE-8DC5-388135F6440A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM.FileManager.Core.Options", "EGM.FileManager.Core.Options\EGM.FileManager.Core.Options.csproj", "{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Debug|x64.ActiveCfg = Debug|x64
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Debug|x64.Build.0 = Debug|x64
 		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Release|x64.ActiveCfg = Release|x64
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Release|x64.Build.0 = Release|x64
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Debug|x64.Build.0 = Debug|Any CPU
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Release|x64.ActiveCfg = Release|Any CPU
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B} = {F23D275D-609F-4B75-BE14-A25636447D21}
+		{F835F7D0-F6F6-4D57-8B75-C6304701FAD6} = {F23D275D-609F-4B75-BE14-A25636447D21}
+		{C00CB67B-0A2C-42BE-8DC5-388135F6440A} = {F23D275D-609F-4B75-BE14-A25636447D21}
+		{CD1F5F4F-BA95-4DDC-93B9-11EB19567044} = {F835F7D0-F6F6-4D57-8B75-C6304701FAD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D988D05-35D0-4892-B738-94369929D828}
