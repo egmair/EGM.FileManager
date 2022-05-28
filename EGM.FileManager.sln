@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM.FileManager", "EGM.FileManager\EGM.FileManager.csproj", "{79E11DB9-93FA-48BA-9268-78F7FB07A97B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E11DB9-93FA-48BA-9268-78F7FB07A97B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D988D05-35D0-4892-B738-94369929D828}
+	EndGlobalSection
+EndGlobal
