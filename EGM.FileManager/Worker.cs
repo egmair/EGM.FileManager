@@ -1,3 +1,6 @@
+using EGM.FileManager.Core.Options;
+using Microsoft.Extensions.Options;
+
 namespace EGM.FileManager
 {
     public class Worker : BackgroundService
