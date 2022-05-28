@@ -28,5 +28,15 @@ namespace EGM.FileManager.Core.Options
         /// The collection of bindings to place particular file types into certain directories.
         /// </summary>
         public Dictionary<string, string> TargetDirectoryBindings { get; set; } = new Dictionary<string, string>();
+
+        /// <summary>
+        /// The maximum number of files to hold in the processing queue.
+        /// </summary>
+        public int? QueueLimit { get; set; }
+
+        /// <summary>
+        /// A delay on adding items to the queue.
+        /// </summary>
+        public uint? EnqueueDelay { get; set; }
     }
 }

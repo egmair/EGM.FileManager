@@ -22,6 +22,8 @@ namespace EGM.FileManager
                 opts.SourceDirectory = fileManagerConfig.SourceDirectory;
                 opts.TargetDirectoryBindings = fileManagerConfig.TargetDirectoryBindings;
                 opts.ProcessUnsupportedFileTypes = fileManagerConfig.ProcessUnsupportedFileTypes;
+                opts.QueueLimit = fileManagerConfig.QueueLimit;
+                opts.EnqueueDelay = fileManagerConfig.EnqueueDelay;
             });
             services.AddHostedService<Worker>();
         }
