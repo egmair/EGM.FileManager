@@ -30,8 +30,13 @@ namespace EGM.FileManager.Core.Channels
             => _channel.Writer.Complete();
 
         /// <inheritdoc/>
-        public IAsyncEnumerable<ManagedFile> ReadAllAsync(CancellationToken cancellationToken = default)
-            => _channel.Reader.ReadAllAsync(cancellationToken);
+        public IAsyncEnumerable<ManagedFile>? ReadAllAsync(CancellationToken cancellationToken = default)
+        {
+            if (cancellationToken.IsCancellationRequested)
+                return null;
+
+            return _channel.Reader.ReadAllAsync(cancellationToken);
+        }
 
         /// <inheritdoc/>
         public bool TryQueue(ManagedFile item)

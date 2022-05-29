@@ -29,7 +29,7 @@ namespace EGM.FileManager.Core.Abstractions.Channels
         /// </summary>
         /// <param name="cancellationToken">A cancellation token.</param>
         /// <returns>An <see cref="IAsyncEnumerable{T}"/> instance.</returns>
-        IAsyncEnumerable<T> ReadAllAsync(CancellationToken cancellationToken = default);
+        IAsyncEnumerable<T>? ReadAllAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Stops items from being added to the queue.
