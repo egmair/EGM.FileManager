@@ -16,8 +16,6 @@ namespace EGM.FileManager.Core.Services
     /// </summary>
     internal sealed class FileManagementConsumer : IFileManagementConsumer
     {
-        private bool _processUnsupportedFileTypes;
-
         private readonly ILogger<FileManagementConsumer> _logger;
         private readonly FileManagerOptions _options;
         private readonly IQueue<ManagedFile> _fileQueue;
@@ -31,19 +29,11 @@ namespace EGM.FileManager.Core.Services
         /// <exception cref="ArgumentNullException">Thrown when a required ctor parameter is null.</exception>
         public FileManagementConsumer(ILogger<FileManagementConsumer> logger,
             IQueue<ManagedFile> fileQueue,
-            IOptions<FileManagerOptions> options,
-            IOptionsMonitor<FileManagerOptions> optionsMonitor)
+            IOptions<FileManagerOptions> options)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _fileQueue = fileQueue ?? throw new ArgumentNullException(nameof(fileQueue));
             _options = options.Value ?? throw new ArgumentNullException(nameof(options));
-
-            _processUnsupportedFileTypes = _options.ProcessUnsupportedFileTypes ?? false;
-
-            optionsMonitor.OnChange(cfg =>
-            {
-                _processUnsupportedFileTypes = cfg.ProcessUnsupportedFileTypes ?? false;
-            });
         }
 
         /// <inheritdoc/>
@@ -64,7 +54,7 @@ namespace EGM.FileManager.Core.Services
                     continue;
                 }
 
-                if (!_options.TargetDirectoryBindings.ContainsKey(file.FilePath) && !_processUnsupportedFileTypes)
+                if (!_options.TargetDirectoryBindings.ContainsKey(file.FilePath) && !_options.ProcessUnsupportedFileTypes)
                 {
                     _logger.LogError(Properties.logMessages.FileTypeNotSupported, file.FilePath);
                     continue;
@@ -72,14 +62,28 @@ namespace EGM.FileManager.Core.Services
 
                 var targetDir = _options.TargetDirectoryBindings[file.FileType];
 
-                // TODO: Add an option to create non-existant directories.
-                if (!Directory.Exists(targetDir))
+                if (!Directory.Exists(targetDir) && !_options.CreateNonExistantTargetDirectories)
                 {
                     _logger.LogError(Properties.logMessages.TargetDirNotFound, targetDir);
                     continue;
                 }
+                else if (!Directory.Exists(targetDir) && _options.CreateNonExistantTargetDirectories)
+                {
+                    Directory.CreateDirectory(targetDir);
+                    _logger.LogError(Properties.logMessages.CreatedTargetDir, targetDir);
+                }
 
-                File.Move(file.FilePath, );
+                try
+                {
+                    var fileInfo = new FileInfo(file.FilePath);
+                    File.Move(file.FilePath, Path.Combine(targetDir, fileInfo.Name));
+                    _logger.LogInformation(Properties.logMessages.FileMovedSuccessfully, file.FilePath, targetDir);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, Properties.logMessages.ErrorOccurredMovingFile, file.FilePath, targetDir, e.Message);
+                    continue;
+                }
             }
         }
     }

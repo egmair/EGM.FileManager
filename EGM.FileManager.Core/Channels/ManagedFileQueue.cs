@@ -1,9 +1,7 @@
 ﻿using EGM.FileManager.Core.Abstractions.Channels;
 using EGM.FileManager.Core.Options;
 using EGM.FileManager.Core.Primitives;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Channels;
@@ -16,13 +14,15 @@ namespace EGM.FileManager.Core.Channels
     /// </summary>
     internal sealed class ManagedFileQueue : IQueue<ManagedFile>
     {
-        private readonly ILogger<ManagedFileQueue> _logger;
         private Channel<ManagedFile> _channel;
 
-        public ManagedFileQueue(ILogger<ManagedFileQueue> logger, IOptions<FileManagerOptions> options)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ManagedFileQueue"/> class.
+        /// </summary>
+        /// <param name="options">An options instance.</param>
+        public ManagedFileQueue(IOptions<FileManagerOptions> options)
         {
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _channel = Channel.CreateBounded<ManagedFile>(options.Value.QueueLimit ?? 10);
+            _channel = Channel.CreateBounded<ManagedFile>(options.Value.QueueLimit);
         }
 
         /// <inheritdoc/>
@@ -35,9 +35,7 @@ namespace EGM.FileManager.Core.Channels
 
         /// <inheritdoc/>
         public bool TryQueue(ManagedFile item)
-        {
-            throw new NotImplementedException();
-        }
+            => _channel.Writer.TryWrite(item);
 
         /// <inheritdoc/>
         public bool TryReadQueue(out ManagedFile? item)

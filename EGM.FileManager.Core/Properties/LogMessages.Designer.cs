@@ -70,6 +70,33 @@ namespace EGM.FileManager.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Target directory {targetDir} was not found however, it has been created by the file manager..
+        /// </summary>
+        internal static string CreatedTargetDir {
+            get {
+                return ResourceManager.GetString("CreatedTargetDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred moving file {filePath} to {targetDir}: {errorMessage}.
+        /// </summary>
+        internal static string ErrorOccurredMovingFile {
+            get {
+                return ResourceManager.GetString("ErrorOccurredMovingFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File {filePath} was successfully moved to {targetDir}.
+        /// </summary>
+        internal static string FileMovedSuccessfully {
+            get {
+                return ResourceManager.GetString("FileMovedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not find file with path: {filePath} - continuing to next file..
         /// </summary>
         internal static string FileNotFound {

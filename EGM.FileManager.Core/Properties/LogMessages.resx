@@ -120,6 +120,15 @@
   <data name="CancellationRequested" xml:space="preserve">
     <value>Cancellation was requested.</value>
   </data>
+  <data name="CreatedTargetDir" xml:space="preserve">
+    <value>Target directory {targetDir} was not found however, it has been created by the file manager.</value>
+  </data>
+  <data name="ErrorOccurredMovingFile" xml:space="preserve">
+    <value>An error occurred moving file {filePath} to {targetDir}: {errorMessage}</value>
+  </data>
+  <data name="FileMovedSuccessfully" xml:space="preserve">
+    <value>File {filePath} was successfully moved to {targetDir}</value>
+  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Could not find file with path: {filePath} - continuing to next file.</value>
   </data>

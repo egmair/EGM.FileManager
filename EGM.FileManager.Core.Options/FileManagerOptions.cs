@@ -17,7 +17,7 @@ namespace EGM.FileManager.Core.Options
         /// <summary>
         /// Whether the file manager should process unsupported file types.
         /// </summary>
-        public bool? ProcessUnsupportedFileTypes { get; set; }
+        public bool ProcessUnsupportedFileTypes { get; set; } = false;
 
         /// <summary>
         /// The default directory to place unsupported file types.
@@ -32,11 +32,16 @@ namespace EGM.FileManager.Core.Options
         /// <summary>
         /// The maximum number of files to hold in the processing queue.
         /// </summary>
-        public int? QueueLimit { get; set; }
+        public int QueueLimit { get; set; } = 10;
 
         /// <summary>
         /// A delay on adding items to the queue.
         /// </summary>
-        public uint? EnqueueDelay { get; set; }
+        public uint EnqueueDelay { get; set; } = 1000;
+
+        /// <summary>
+        /// Whether the file manager should create a target directory if it does not exist.
+        /// </summary>
+        public bool CreateNonExistantTargetDirectories { get; set; } = false;
     }
 }

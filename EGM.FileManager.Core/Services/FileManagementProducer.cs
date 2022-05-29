@@ -49,11 +49,9 @@ namespace EGM.FileManager.Core.Services
             _appLifetime = appLifetime ?? throw new ArgumentNullException(nameof(appLifetime));
             _scopeFactory = scopeFactory ?? throw new ArgumentNullException(nameof(scopeFactory));
 
-            TIME_SPAN = optionsMonitor.CurrentValue.EnqueueDelay ?? 1000;
-
             optionsMonitor.OnChange(cfg =>
             {
-                TIME_SPAN = cfg.EnqueueDelay ?? 1000;
+                TIME_SPAN = cfg.EnqueueDelay;
             });
         }
 
