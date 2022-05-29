@@ -18,4 +18,19 @@
     <ProjectReference Include="..\EGM.FileManager.Core.Primitives\EGM.FileManager.Core.Primitives.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Properties\LogMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>logMessages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\logMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
