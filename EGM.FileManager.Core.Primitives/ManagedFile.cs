@@ -1,9 +1,9 @@
 ﻿namespace EGM.FileManager.Core.Primitives
 {
-    public struct ManagedFile
+    public class ManagedFile
     {
-        public string FilePath { get; set; }
+        public string FilePath { get; set; } = null!;
 
-        public string FileType { get; set; }
+        public string FileType { get; set; } = null!;
     }
 }
